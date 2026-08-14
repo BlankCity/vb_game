@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隐藏狼人 · 文字冒险</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 侧边栏：游戏状态 -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h1>隐藏狼人</h1>
+      <div class="subtitle">文字冒险 · 找出潜伏者</div>
+    </div>
+
+    <div class="scene-info">
+      <div class="label">当前场景</div>
+      <div class="value" id="scene-name">—</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;" id="scene-weather">—</div>
+    </div>
+
+    <div class="status-bar">
+      <div class="status-row">
+        <span class="label">回合</span>
+        <span class="value" id="turn-count">0 / 15</span>
+      </div>
+      <div class="status-row">
+        <span class="label">时间</span>
+        <span class="value" id="time-of-day">—</span>
+      </div>
+    </div>
+
+    <div class="tension-bar-container">
+      <div class="label">
+        <span>紧张度</span>
+        <span id="tension-value">0%</span>
+      </div>
+      <div class="tension-bar">
+        <div class="tension-fill" id="tension-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="npc-section">
+      <div class="section-title">遇到的人</div>
+      <div id="npc-list"></div>
+    </div>
+
+    <div class="clue-section">
+      <div class="section-title">已发现线索</div>
+      <div id="clue-list">
+        <div class="no-clues">尚未发现线索</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 主区域：聊天 + 输入 -->
+  <main id="main">
+    <div id="chat-area"></div>
+
+    <div id="input-area">
+      <div class="quick-actions" id="quick-actions">
+        <button class="quick-btn" data-action="探索周围">探索周围</button>
+        <button class="quick-btn" data-action="调查">调查线索</button>
+        <button class="quick-btn" data-action="帮助">帮助</button>
+      </div>
+      <div class="input-wrapper">
+        <textarea id="input-field" placeholder="输入你想做的事...（如：和卡尔说话、调查周围、我指认艾拉是狼人）" rows="1"></textarea>
+        <button id="send-btn">发送</button>
+        <button id="restart-btn">重新开始</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="game-data.js"></script>
+  <script src="game-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
